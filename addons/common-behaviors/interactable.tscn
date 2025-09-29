@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsebcito2377q"]
+
+[ext_resource type="Script" uid="uid://bdxpvyvg34o5d" path="res://addons/common-behaviors/interactable.gd" id="1_f1bs6"]
+
+[node name="InteractableBehaviour" type="Area2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_f1bs6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
