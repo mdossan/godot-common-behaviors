@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://df0p5kj8iaww0" path="res://addons/common-behaviors/can_interact.gd" id="1_pklh6"]
 
-[node name="InteractBehaviour" type="Area2D"]
+[node name="CanInteract" type="Area2D"]
 collision_layer = 8
 collision_mask = 16
 script = ExtResource("1_pklh6")

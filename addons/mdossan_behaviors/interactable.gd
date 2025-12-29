@@ -1,4 +1,4 @@
-class_name InteractableBehaviour
+class_name Interactable
 extends Area2D
 
 var can_interact = false
