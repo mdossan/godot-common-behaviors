@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dy642dr6hbmqm"]
 
-[ext_resource type="Script" uid="uid://brsjntppbadl7" path="res://addons/common-behaviors/pickable.gd" id="1_khr7p"]
+[ext_resource type="Script" uid="uid://brsjntppbadl7" path="res://addons/mdossan_behaviors/common/pick/pickable.gd" id="1_khr7p"]
 
 [node name="Pickable" type="Area2D"]
 collision_layer = 64
