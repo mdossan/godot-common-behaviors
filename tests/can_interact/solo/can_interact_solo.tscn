@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://xcfqa12tmv3r"]
+
+[ext_resource type="PackedScene" uid="uid://dfupys8hwaacb" path="res://addons/mds_test/mds_test_scene.tscn" id="1_5h1vt"]
+[ext_resource type="Script" uid="uid://56ah5k0d0ci1" path="res://tests/can_interact/solo/can_interact_solo.gd" id="2_5h1vt"]
+[ext_resource type="PackedScene" uid="uid://cfbylf2odnixh" path="res://addons/mds_lib/skills/interact/mds_interact_skill_3d.tscn" id="3_vlaoi"]
+[ext_resource type="PackedScene" uid="uid://cq344l85fqfp6" path="res://src/interactables/interactable_cube.tscn" id="6_ckbd7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_2lboh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qu4cp"]
+
+[node name="CanInteractSolo" instance=ExtResource("1_5h1vt")]
+script = ExtResource("2_5h1vt")
+
+[node name="Camera3D" type="Camera3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9171596)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 2)
+
+[node name="Player" type="CharacterBody3D" parent="." index="3"]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" index="0"]
+mesh = SubResource("SphereMesh_2lboh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" index="1"]
+shape = SubResource("SphereShape3D_qu4cp")
+
+[node name="Inventory" type="Node3D" parent="Player" index="2"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.031436443, 0.61848235, 0)
+
+[node name="MdsInteractAction3D" parent="Player" index="3" node_paths=PackedStringArray("parent") instance=ExtResource("3_vlaoi")]
+parent = NodePath("..")
+
+[node name="InteractableCube" parent="." index="4" instance=ExtResource("6_ckbd7")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3568975, 0, 0)

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://x5tinm4j7xii"]
+
+[ext_resource type="Script" uid="uid://u8ee55sdsfpi" path="res://src/p2p/player_multi.gd" id="1_htvyt"]
+[ext_resource type="PackedScene" uid="uid://iogt3j27eyfc" path="res://addons/mds_lib/skills/movement/mds_movement_skill_3d.tscn" id="1_lbo32"]
+[ext_resource type="PackedScene" uid="uid://d34aninm50nnl" path="res://addons/mds_lib/skills/pick_item/mds_pick_item_skill_3d.tscn" id="3_kh0sm"]
+[ext_resource type="PackedScene" uid="uid://dd0bh8u8kch63" path="res://addons/mds_lib/behaviors/inventory/mds_inventory_bahavior_3d.tscn" id="4_2pt86"]
+[ext_resource type="PackedScene" uid="uid://lmerwlwbcvtr" path="res://addons/mds_lib/item/mds_item_3d_spawner.tscn" id="4_ut3mi"]
+[ext_resource type="PackedScene" uid="uid://cfbylf2odnixh" path="res://addons/mds_lib/skills/interact/mds_interact_skill_3d.tscn" id="5_2pt86"]
+[ext_resource type="Resource" uid="uid://b5aw4ylpx62ol" path="res://src/items/items.tres" id="5_5wn7t"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_htvyt"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_1e83v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qoxdo"]
+
+[node name="PlayerMulti" type="CharacterBody3D" unique_id=387054388]
+script = ExtResource("1_htvyt")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=553565162]
+replication_config = SubResource("SceneReplicationConfig_htvyt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1713637031]
+mesh = SubResource("SphereMesh_1e83v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1384501690]
+shape = SubResource("SphereShape3D_qoxdo")
+
+[node name="MdsMovement" parent="." unique_id=908096288 node_paths=PackedStringArray("parent") instance=ExtResource("1_lbo32")]
+unique_name_in_owner = true
+parent = NodePath("..")
+
+[node name="MdsPickAction3D" parent="." unique_id=1942270339 node_paths=PackedStringArray("parent", "inventory") instance=ExtResource("3_kh0sm")]
+unique_name_in_owner = true
+parent = NodePath("..")
+inventory = NodePath("../MdsInventoryBehavior3D")
+
+[node name="MdsItem3dSpawner" parent="." unique_id=1011619714 instance=ExtResource("4_ut3mi")]
+spawn_path = NodePath("../MdsInventoryBehavior3D")
+items = ExtResource("5_5wn7t")
+
+[node name="MdsInventoryBehavior3D" parent="." unique_id=179976716 node_paths=PackedStringArray("item_spawner") instance=ExtResource("4_2pt86")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+item_spawner = NodePath("../MdsItem3dSpawner")
+
+[node name="MdsInteractAction3D" parent="." unique_id=1558495635 node_paths=PackedStringArray("parent") instance=ExtResource("5_2pt86")]
+unique_name_in_owner = true
+parent = NodePath("..")

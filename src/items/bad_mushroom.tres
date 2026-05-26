@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MdsItemResource" format=3 uid="uid://ca2xyb2xad6a5"]
+
+[ext_resource type="Script" uid="uid://cvlvfiy424oi2" path="res://addons/mds_lib/item/mds_item_resource.gd" id="1_6nmo0"]
+[ext_resource type="CapsuleMesh" uid="uid://di084a1blot54" path="res://src/meshes/little_pink_capsule.tres" id="1_woj07"]
+[ext_resource type="Script" uid="uid://dl6nkfs8jrppv" path="res://src/item_usages/loose_life_item_usage.gd" id="3_ew43g"]
+
+[sub_resource type="Resource" id="Resource_7o2xe"]
+script = ExtResource("3_ew43g")
+metadata/_custom_type_script = "uid://dl6nkfs8jrppv"
+
+[resource]
+script = ExtResource("1_6nmo0")
+item_id = "bad_mushroom_item"
+item_label = "BadMushroomItem"
+mesh = ExtResource("1_woj07")
+usage = SubResource("Resource_7o2xe")
+metadata/_custom_type_script = "uid://cvlvfiy424oi2"

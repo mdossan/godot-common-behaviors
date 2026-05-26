@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://3v0gs5biiuud"]
+
+[ext_resource type="Script" uid="uid://di4j1t28k5bpv" path="res://tests/multiplayer_bench.gd" id="1_yqmw6"]
+[ext_resource type="Script" uid="uid://bb5keanxxmq84" path="res://tests/level_spawner.gd" id="4_5b0sa"]
+
+[node name="MultiplayerBench" type="Node" unique_id=647142084]
+script = ExtResource("1_yqmw6")
+metadata/_custom_type_script = "uid://c2xajvx8soago"
+
+[node name="LevelSpawner" type="MultiplayerSpawner" parent="." unique_id=1550948204]
+unique_name_in_owner = true
+spawn_path = NodePath("../Level")
+script = ExtResource("4_5b0sa")
+
+[node name="Level" type="Node3D" parent="." unique_id=335744187]
+unique_name_in_owner = true
+
+[connection signal="game_started" from="." to="." method="_on_game_started"]
+[connection signal="spawned" from="LevelSpawner" to="." method="_on_level_spawn"]

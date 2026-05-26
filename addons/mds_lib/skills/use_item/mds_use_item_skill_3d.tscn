@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dxd5h36maintw"]
+
+[ext_resource type="Script" uid="uid://bjsxa8gkhr2ds" path="res://addons/mds_lib/skills/use_item/mds_use_item_skill_3d.gd" id="1_t8ape"]
+
+[node name="MdsUseItemSkill3D" type="Node3D" unique_id=1762637381]
+script = ExtResource("1_t8ape")

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://4bgoiqqqfmax"]
-
-[ext_resource type="Script" uid="uid://clritw0q0d5kn" path="res://addons/mdossan_behaviors/common/life/life.gd" id="1_i0mm4"]
-
-[node name="LifeBehavior" type="Node"]
-script = ExtResource("1_i0mm4")

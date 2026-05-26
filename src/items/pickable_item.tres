@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MdsItemResource" load_steps=3 format=3 uid="uid://bbecowtaeq6yt"]
+
+[ext_resource type="BoxMesh" uid="uid://mhbt5g45q6xy" path="res://src/meshes/little_cyan_cube.tres" id="1_gsppr"]
+[ext_resource type="Script" uid="uid://cvlvfiy424oi2" path="res://addons/mds_lib/item/mds_item_resource.gd" id="1_xb1ys"]
+
+[resource]
+script = ExtResource("1_xb1ys")
+item_id = "pickable_item"
+item_label = "Pickable"
+mesh = ExtResource("1_gsppr")
+metadata/_custom_type_script = "uid://cvlvfiy424oi2"

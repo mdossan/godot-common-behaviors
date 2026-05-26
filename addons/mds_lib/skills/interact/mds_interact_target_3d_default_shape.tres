@@ -1,0 +1,5 @@
+[gd_resource type="SphereShape3D" format=3 uid="uid://b5k28rt8gt0hp"]
+
+[resource]
+resource_local_to_scene = true
+radius = 1.0

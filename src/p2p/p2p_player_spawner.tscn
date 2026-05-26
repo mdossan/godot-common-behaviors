@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bipgb3jkquv5f"]
+
+[ext_resource type="Script" uid="uid://b6gxeavie4c8c" path="res://src/p2p/p2p_player_spawner.gd" id="1_0nxln"]
+[ext_resource type="Script" uid="uid://ytb8qiqd5bum" path="res://src/p2p/player_spawner.gd" id="2_dstre"]
+
+[node name="P2pPlayerSpawner" type="Node3D"]
+script = ExtResource("1_0nxln")
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
+unique_name_in_owner = true
+spawn_path = NodePath("../Players")
+script = ExtResource("2_dstre")
+
+[node name="Players" type="Node3D" parent="."]
+
+[connection signal="spawned" from="PlayerSpawner" to="." method="_on_player_spawned"]

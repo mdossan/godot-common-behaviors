@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://v7hdnpueg1q0"]
+
+[ext_resource type="Script" uid="uid://duava3dt2nod" path="res://addons/mds_lib/spawner/mds_node_3d_spawner.gd" id="1_r251v"]
+
+[node name="MdsNode3DSpawner" type="MultiplayerSpawner" unique_id=1753195649]
+script = ExtResource("1_r251v")

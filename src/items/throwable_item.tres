@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MdsItemResource" load_steps=3 format=3 uid="uid://bho84hllcydgx"]
+
+[ext_resource type="SphereMesh" uid="uid://cesbqoq2mgqtt" path="res://src/meshes/little_pink_sphere.tres" id="1_sllyy"]
+[ext_resource type="Script" uid="uid://cvlvfiy424oi2" path="res://addons/mds_lib/item/mds_item_resource.gd" id="2_3apl2"]
+
+[resource]
+script = ExtResource("2_3apl2")
+item_id = "throwable"
+item_label = "Throwable"
+mesh = ExtResource("1_sllyy")
+metadata/_custom_type_script = "uid://cvlvfiy424oi2"

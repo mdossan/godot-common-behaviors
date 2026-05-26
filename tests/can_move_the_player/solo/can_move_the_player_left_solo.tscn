@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cypd6axipmr3o"]
+
+[ext_resource type="PackedScene" uid="uid://dfupys8hwaacb" path="res://addons/mds_test/mds_test_scene.tscn" id="1_2aixq"]
+[ext_resource type="Script" uid="uid://coh22hoqnr52u" path="res://tests/can_move_the_player/solo/can_move_the_player_left_solo.gd" id="2_2aixq"]
+[ext_resource type="PackedScene" uid="uid://iogt3j27eyfc" path="res://addons/mds_lib/skills/movement/mds_movement_skill_3d.tscn" id="3_x3t7a"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1e83v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qoxdo"]
+
+[node name="CanMoveThePlayerLeftSolo" instance=ExtResource("1_2aixq")]
+script = ExtResource("2_2aixq")
+
+[node name="Camera3D" type="Camera3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Player" type="CharacterBody3D" parent="." index="2"]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" index="0"]
+mesh = SubResource("SphereMesh_1e83v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" index="1"]
+shape = SubResource("SphereShape3D_qoxdo")
+
+[node name="MdsMovement" parent="Player" index="2" node_paths=PackedStringArray("parent") instance=ExtResource("3_x3t7a")]
+parent = NodePath("..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 2)

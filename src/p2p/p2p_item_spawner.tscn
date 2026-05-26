@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dogx6io4cbsqp"]
+
+[ext_resource type="Script" uid="uid://b0gn0r8r71vjl" path="res://src/p2p/p2p_item_spawner.gd" id="1_s25fn"]
+[ext_resource type="Script" uid="uid://dbhw1ly1y58s4" path="res://addons/mds_lib/item/mds_item_3d_spawner.gd" id="2_cu57y"]
+[ext_resource type="Resource" uid="uid://b5aw4ylpx62ol" path="res://src/items/items.tres" id="3_v6irc"]
+
+[node name="P2pItemSpawner" type="Node3D" unique_id=837498658]
+script = ExtResource("1_s25fn")
+
+[node name="MdsItem3DSpawner" type="MultiplayerSpawner" parent="." unique_id=489704688]
+unique_name_in_owner = true
+spawn_path = NodePath("../Items")
+script = ExtResource("2_cu57y")
+items = ExtResource("3_v6irc")
+
+[node name="Items" type="Node3D" parent="." unique_id=1528078952]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://oxbm6nlmney0"]
+
+[ext_resource type="PackedScene" uid="uid://dfupys8hwaacb" path="res://addons/mds_test/mds_test_scene.tscn" id="1_q2ghp"]
+[ext_resource type="Script" uid="uid://djcnispx6pw68" path="res://tests/can_use_stamina_with_interaction/solo/can_use_stamina_with_interaction_solo.gd" id="2_qe421"]
+[ext_resource type="PackedScene" uid="uid://cmywqmh8nnotr" path="res://addons/mds_lib/behaviors/stamina/mds_stamina_behavior.tscn" id="3_qe421"]
+[ext_resource type="PackedScene" uid="uid://cfbylf2odnixh" path="res://addons/mds_lib/skills/interact/mds_interact_skill_3d.tscn" id="4_q4s87"]
+[ext_resource type="PackedScene" uid="uid://bfn6g1sswxi2o" path="res://addons/mds_lib/skills/interact/mds_interact_target_3d.tscn" id="5_i2gvw"]
+[ext_resource type="PackedScene" uid="uid://cvwe4mmy4hckx" path="res://addons/mds_lib/interaction/mds_stamina_use_interaction.tscn" id="6_q4s87"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_2lboh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qu4cp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we6sg"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_p5si6"]
+material = SubResource("StandardMaterial3D_we6sg")
+radius = 0.1
+height = 0.2
+
+[node name="CanUseStaminaWithInteractionSolo" instance=ExtResource("1_q2ghp")]
+script = ExtResource("2_qe421")
+
+[node name="Camera3D" type="Camera3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 2)
+
+[node name="Player" type="CharacterBody3D" parent="." index="3"]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" index="0"]
+mesh = SubResource("SphereMesh_2lboh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" index="1"]
+shape = SubResource("SphereShape3D_qu4cp")
+
+[node name="MdsStaminaLogic" parent="Player" index="2" node_paths=PackedStringArray("parent") instance=ExtResource("3_qe421")]
+unique_name_in_owner = true
+parent = NodePath("..")
+
+[node name="MdsInteractAction3D" parent="Player" index="3" node_paths=PackedStringArray("parent") instance=ExtResource("4_q4s87")]
+parent = NodePath("..")
+
+[node name="Item" type="Node3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Item" index="0"]
+mesh = SubResource("SphereMesh_p5si6")
+
+[node name="MdsInteractTarget3D" parent="Item" index="1" node_paths=PackedStringArray("parent") instance=ExtResource("5_i2gvw")]
+parent = NodePath("..")
+
+[node name="MdsStaminaUseInteraction" parent="Item/MdsInteractTarget3D" index="2" instance=ExtResource("6_q4s87")]

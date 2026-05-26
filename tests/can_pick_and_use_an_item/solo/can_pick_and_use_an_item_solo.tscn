@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5ke17y7idb5y"]
+
+[ext_resource type="PackedScene" uid="uid://dfupys8hwaacb" path="res://addons/mds_test/mds_test_scene.tscn" id="1_ktvfx"]
+[ext_resource type="Script" uid="uid://dqv4sphfrt7qj" path="res://tests/can_pick_and_use_an_item/solo/can_pick_and_use_an_item_solo.gd" id="2_nsiwj"]
+[ext_resource type="PackedScene" uid="uid://dd0bh8u8kch63" path="res://addons/mds_lib/behaviors/inventory/mds_inventory_bahavior_3d.tscn" id="3_y4r78"]
+[ext_resource type="PackedScene" uid="uid://d34aninm50nnl" path="res://addons/mds_lib/skills/pick_item/mds_pick_item_skill_3d.tscn" id="4_054q7"]
+[ext_resource type="PackedScene" uid="uid://clvw56c7eb8y0" path="res://addons/mds_lib/item/mds_item_3d.tscn" id="5_054q7"]
+[ext_resource type="Resource" uid="uid://iushd1i0lvh8" path="res://src/items/consomable_item.tres" id="6_h8nqw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_h8nqw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vkue7"]
+
+[node name="CanPickAndUseAnItemSolo" instance=ExtResource("1_ktvfx")]
+script = ExtResource("2_nsiwj")
+
+[node name="Camera3D" type="Camera3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9171596)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 2)
+
+[node name="Player" type="CharacterBody3D" parent="." index="3"]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" index="0"]
+mesh = SubResource("SphereMesh_h8nqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" index="1"]
+shape = SubResource("SphereShape3D_vkue7")
+
+[node name="MdsInventoryBehavior3D" parent="Player" index="2" instance=ExtResource("3_y4r78")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9138155, 0)
+
+[node name="MdsPickItemSkill3D" parent="Player" index="3" node_paths=PackedStringArray("parent", "inventory") instance=ExtResource("4_054q7")]
+parent = NodePath("..")
+inventory = NodePath("../MdsInventoryBehavior3D")
+
+[node name="MdsItem3D" parent="." index="4" instance=ExtResource("5_054q7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8725071, 0, 0)
+item_resource = ExtResource("6_h8nqw")

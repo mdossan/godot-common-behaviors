@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://33kqcyygrasd"]
+
+[ext_resource type="PackedScene" uid="uid://dfupys8hwaacb" path="res://addons/mds_test/mds_test_scene.tscn" id="1_jqc23"]
+[ext_resource type="Script" uid="uid://dshx8fyi72uf0" path="res://tests/can_pick_simple_item/webrtc/test_mds_pick_action_3d_p2p_can_pick_item.gd" id="2_jqc23"]
+[ext_resource type="PackedScene" uid="uid://3v0gs5biiuud" path="res://tests/multiplayer_bench.tscn" id="3_mhtav"]
+
+[node name="TestMdsPickAction3DP2PCanPickItem" unique_id=37819243 instance=ExtResource("1_jqc23")]
+script = ExtResource("2_jqc23")
+
+[node name="PeerA" parent="." index="1" unique_id=647142084 instance=ExtResource("3_mhtav")]
+unique_name_in_owner = true
+level_path = "res://test_worlds/world_with_two_players_and_item_close_to_player_b.tscn"
+player_id = 42
+
+[node name="PeerB" parent="." index="2" unique_id=486708050 instance=ExtResource("3_mhtav")]
+unique_name_in_owner = true
+x_scale = -1
+player_id = 43

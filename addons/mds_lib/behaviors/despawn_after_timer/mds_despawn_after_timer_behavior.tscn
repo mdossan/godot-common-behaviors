@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://yqbkh72jbxij"]
+
+[ext_resource type="Script" uid="uid://ce4ojeo6ktvjm" path="res://addons/mds_lib/behaviors/despawn_after_timer/mds_despawn_after_timer_behavior.gd" id="1_qoaco"]
+
+[node name="MdsDespawnAfterTimerBehavior" type="Node"]
+script = ExtResource("1_qoaco")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://755xvndjt280"]
-
-[ext_resource type="Script" uid="uid://cajqwaaanwto1" path="res://addons/mdossan_behaviors/2D/side_movement/side_movement.gd" id="1_t6u1k"]
-
-[node name="SideMovement" type="Node2D"]
-script = ExtResource("1_t6u1k")
