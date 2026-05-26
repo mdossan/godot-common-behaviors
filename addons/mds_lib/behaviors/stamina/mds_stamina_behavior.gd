@@ -1,5 +1,5 @@
 @tool
-class_name MdsStaminaLogic
+class_name MdsStaminaBehavior
 extends Node
 
 signal stamina_consumed(remaining_stamina: float)

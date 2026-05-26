@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmywqmh8nnotr"]
+[gd_scene format=3 uid="uid://cmywqmh8nnotr"]
 
 [ext_resource type="Script" uid="uid://ccpo0srvevk2i" path="res://addons/mds_lib/behaviors/stamina/mds_stamina_behavior.gd" id="1_irkur"]
 
-[node name="MdsStaminaLogic" type="Node"]
+[node name="MdsStaminaBehavior" type="Node" unique_id=845257924]
 script = ExtResource("1_irkur")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=293850004]
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="refill_stamina_per_second"]
