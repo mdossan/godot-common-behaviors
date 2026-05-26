@@ -1,1 +1,0 @@
-extends MdsItem3D
