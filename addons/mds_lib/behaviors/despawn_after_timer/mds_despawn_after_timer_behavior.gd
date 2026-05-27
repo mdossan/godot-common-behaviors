@@ -1,5 +1,7 @@
 class_name MdsDespawnAfterTimerBehavior extends Node
 
+signal despawned
+
 @export var target: Node
 @export var despawn_delay: float = 1.0
 
@@ -12,3 +14,4 @@ func despawn():
 func _on_timer_timeout() -> void:
 	if target:
 		target.call_deferred("queue_free")
+		despawned.emit()
