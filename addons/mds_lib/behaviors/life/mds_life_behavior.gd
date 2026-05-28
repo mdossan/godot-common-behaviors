@@ -9,10 +9,12 @@ signal dead()
 
 @export var parent: Node
 @export var max_life = 100.0
+@export var start_life = 100.0
 
-var life = max_life
+var life = start_life
 
 func _ready() -> void:
+	life = start_life
 	parent.set_meta(meta, self)
 
 func take_damage(amount_of_damage: float):
