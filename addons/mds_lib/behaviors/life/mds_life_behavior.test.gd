@@ -9,14 +9,18 @@ func test_life_behavior():
 	# Arrange: Create Behavior node
 	var behavior: MdsLifeBehavior = scene.instantiate()
 	behavior.parent = root_node
+	behavior.start_life = 50.0
 	watch_signals(behavior)
 	root_node.add_child(behavior)
 	
 	# Arrange: Spawn root_node to the scene
 	add_child_autofree(root_node)
 	
-	# Assert: Start with default life
-	assert_eq(behavior.life, 100.0, "Default value should be 100")
+	# Assert: Start with start_life amout
+	assert_eq(behavior.life, 50.0, "Default value should be 50")
+	
+	# Arrange: Reset life to 100
+	behavior.life = 100
 	
 	# Act: Take Damage
 	behavior.take_damage(20.0)
