@@ -12,5 +12,5 @@ func execute_interaction(actor: Node):
 		push_error("Actor %s does not have a MdsStaminaLogic reference" % actor)
 		return;
 	
-	var stamina_node: MdsStaminaLogic = actor.get_meta("mds_stamina_logic")
+	var stamina_node: MdsStaminaBehavior = actor.get_meta("mds_stamina_logic")
 	stamina_node.consume_stamina(amount)

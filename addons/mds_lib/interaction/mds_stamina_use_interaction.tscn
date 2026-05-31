@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvwe4mmy4hckx"]
+[gd_scene format=3 uid="uid://cvwe4mmy4hckx"]
 
 [ext_resource type="Script" uid="uid://brmvbvj8ithpw" path="res://addons/mds_lib/interaction/mds_stamina_use_interaction.gd" id="1_osdso"]
 
-[node name="MdsStaminaUseInteraction" type="Node"]
+[node name="MdsStaminaUseInteraction" type="Node" unique_id=1400676957]
 script = ExtResource("1_osdso")
