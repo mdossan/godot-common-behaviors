@@ -37,7 +37,8 @@ folder_colors={
 "res://src/item_usages/": "purple",
 "res://src/items/": "purple",
 "res://src/items_custom/": "purple",
-"res://src/meshes/": "pink"
+"res://src/meshes/": "pink",
+"res://tests/behaviors/": "green"
 }
 
 [input]
