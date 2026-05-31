@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfn6g1sswxi2o"]
+[gd_scene format=3 uid="uid://bfn6g1sswxi2o"]
 
 [ext_resource type="Script" uid="uid://crk3uxtbd6rqd" path="res://addons/mds_lib/skills/interact/mds_interact_target_3d.gd" id="1_tox51"]
 [ext_resource type="Shape3D" uid="uid://b5k28rt8gt0hp" path="res://addons/mds_lib/skills/interact/mds_interact_target_3d_default_shape.tres" id="2_57h87"]
 
-[node name="MdsInteractTarget3D" type="Area3D"]
+[node name="MdsInteractTarget3D" type="Area3D" unique_id=1823960004]
 collision_layer = 268435456
 collision_mask = 536870912
 script = ExtResource("1_tox51")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=130524783]
 shape = ExtResource("2_57h87")
 
-[node name="InteractMenu" type="CanvasLayer" parent="."]
+[node name="InteractMenu" type="CanvasLayer" parent="." unique_id=1316476190]
 unique_name_in_owner = true
 
-[node name="Control" type="Control" parent="InteractMenu"]
+[node name="Control" type="Control" parent="InteractMenu" unique_id=425597314]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,7 +26,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="PossibleInteractions" type="VBoxContainer" parent="InteractMenu/Control"]
+[node name="PossibleInteractions" type="VBoxContainer" parent="InteractMenu/Control" unique_id=328026106]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8

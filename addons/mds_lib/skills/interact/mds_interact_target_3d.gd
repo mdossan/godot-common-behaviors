@@ -1,7 +1,7 @@
 class_name MdsInteractTarget3D extends Area3D
 
 @export var parent: Node3D
-@export var shape: Shape3D
+@export var shape: Shape3D = preload("res://addons/mds_lib/skills/interact/mds_interact_target_3d_default_shape.tres")
 @export var disabled: bool = false
 
 var interactions: Array[MdsAbstractInteraction] = []
