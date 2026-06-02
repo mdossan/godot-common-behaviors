@@ -38,7 +38,6 @@ func interact(actor: Node):
 		return
 
 	if interactions.size() == 1:
-		print("before_interact")
 		interactions.get(0).execute_interaction(actor)
 		%InteractMenu.visible = false
 		return
