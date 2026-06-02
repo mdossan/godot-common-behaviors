@@ -6,7 +6,7 @@ class_name MdsInteractSkill3D extends Area3D
 
 func _ready():
 	if shape != null:
-		%Shape.shape = shape
+		%InteractionShape.shape = shape
 
 var should_interact: bool = false
 func _input(event: InputEvent) -> void:
@@ -22,5 +22,4 @@ func _physics_process(delta: float) -> void:
 		# TODO: Only one ?
 		for interact_target in get_overlapping_areas():
 			if interact_target is MdsInteractTarget3D:
-				print("should interact")
 				interact_target.interact(parent)
