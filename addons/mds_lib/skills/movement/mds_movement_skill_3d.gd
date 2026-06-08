@@ -2,7 +2,7 @@ class_name MdsMovementSkill3D extends Node3D
 
 @export var parent: CharacterBody3D
 @export var speed: int = 10
-@export var jump_cuvre: Curve
+@export var jump_cuvre: Curve = preload("res://addons/mds_lib/skills/movement/default_jump_curve.tres")
 @export var jump_force: float = 10
 @export var jump_speed: float = 1
 
