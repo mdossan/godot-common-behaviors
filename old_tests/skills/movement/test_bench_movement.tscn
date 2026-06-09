@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bmaqmp32lvq4"]
+
+[ext_resource type="Script" uid="uid://fwwtb2jdd7u7" path="res://old_tests/skills/movement/test_bench_movement.gd" id="1_cv4ro"]
+[ext_resource type="PackedScene" uid="uid://iogt3j27eyfc" path="res://addons/mds_lib/skills/movement/mds_movement_skill_3d.tscn" id="2_uxjr7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uxjr7"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_6nk7g"]
+sky_material = SubResource("ProceduralSkyMaterial_uxjr7")
+
+[sub_resource type="Environment" id="Environment_f88py"]
+background_mode = 2
+sky = SubResource("Sky_6nk7g")
+tonemap_mode = 2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cv4ro"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uxjr7"]
+
+[node name="TestBenchMovement" type="Node3D" unique_id=372475586]
+script = ExtResource("1_cv4ro")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=845235288]
+environment = SubResource("Environment_f88py")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1395948861]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=725138421]
+transform = Transform3D(1, 0, 0, 0, 0.994856, 0.10129939, 0, -0.10129939, 0.994856, 0, 0.7403474, 2.27992)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=417908001]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=873595037]
+mesh = SubResource("CapsuleMesh_cv4ro")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=800603333]
+shape = SubResource("CapsuleShape3D_uxjr7")
+
+[node name="MdsMovementSkill3D" parent="CharacterBody3D" unique_id=360895007 node_paths=PackedStringArray("parent") instance=ExtResource("2_uxjr7")]
+parent = NodePath("..")

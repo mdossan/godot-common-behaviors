@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dt840f4gj6myd"]
 
-[ext_resource type="Script" uid="uid://meifs26q2x5y" path="res://tests/skills/interact/test_bench_single_custom_interaction.gd" id="1_uivsc"]
+[ext_resource type="Script" uid="uid://meifs26q2x5y" path="res://old_tests/skills/interact/test_bench_single_custom_interaction.gd" id="1_uivsc"]
 [ext_resource type="PackedScene" uid="uid://cfbylf2odnixh" path="res://addons/mds_lib/skills/interact/mds_interact_skill_3d.tscn" id="2_0b8yi"]
 [ext_resource type="PackedScene" uid="uid://bfn6g1sswxi2o" path="res://addons/mds_lib/skills/interact/mds_interact_target_3d.tscn" id="3_bwaqx"]
 [ext_resource type="PackedScene" uid="uid://brwparhia4xsi" path="res://addons/mds_lib/interaction/mds_interaction_custom.tscn" id="4_76f8e"]
