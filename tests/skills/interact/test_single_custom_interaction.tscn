@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bhatqyrtr1pqm"]
+
+[ext_resource type="PackedScene" uid="uid://geeddx1ugttx" path="res://addons/mds_test/mds_test_scene.tscn" id="1_faorb"]
+[ext_resource type="Script" uid="uid://clm0weaqrxed0" path="res://tests/skills/interact/test_single_custom_interaction.gd" id="2_vxygy"]
+[ext_resource type="PackedScene" uid="uid://cfbylf2odnixh" path="res://addons/mds_lib/skills/interact/mds_interact_skill_3d.tscn" id="3_rpwpk"]
+[ext_resource type="PackedScene" uid="uid://bfn6g1sswxi2o" path="res://addons/mds_lib/skills/interact/mds_interact_target_3d.tscn" id="4_ccv4a"]
+[ext_resource type="PackedScene" uid="uid://brwparhia4xsi" path="res://addons/mds_lib/interaction/mds_interaction_custom.tscn" id="5_7qqof"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_duo0c"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_t6ykt"]
+sky_material = SubResource("ProceduralSkyMaterial_duo0c")
+
+[sub_resource type="Environment" id="Environment_chgsm"]
+background_mode = 2
+sky = SubResource("Sky_t6ykt")
+tonemap_mode = 2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u0371"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iqmrc"]
+
+[node name="TestSingleCustomInteraction" unique_id=2082957231 instance=ExtResource("1_faorb")]
+script = ExtResource("2_vxygy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=2127610689]
+environment = SubResource("Environment_chgsm")
+
+[node name="Camera3D" type="Camera3D" parent="." index="1" unique_id=1077220381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1264918)
+
+[node name="Player" type="MeshInstance3D" parent="." index="2" unique_id=500067328]
+mesh = SubResource("CapsuleMesh_u0371")
+
+[node name="MdsInteractSkill3D" parent="Player" index="0" unique_id=1098895208 node_paths=PackedStringArray("parent") instance=ExtResource("3_rpwpk")]
+unique_name_in_owner = true
+parent = NodePath("..")
+
+[node name="Interactable" type="MeshInstance3D" parent="." index="3" unique_id=383408332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1548157, 0, 0)
+mesh = SubResource("BoxMesh_iqmrc")
+
+[node name="MdsInteractTarget3D" parent="Interactable" index="0" unique_id=1823960004 node_paths=PackedStringArray("parent") instance=ExtResource("4_ccv4a")]
+unique_name_in_owner = true
+parent = NodePath("..")
+
+[node name="MdsInteractionCustom" parent="Interactable/MdsInteractTarget3D" index="2" unique_id=729548942 instance=ExtResource("5_7qqof")]
+unique_name_in_owner = true
