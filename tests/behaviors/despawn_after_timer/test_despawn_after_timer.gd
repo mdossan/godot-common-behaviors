@@ -6,4 +6,4 @@ func test():
 	if is_instance_valid(%Subject):
 		succeed("Subject has been removed")
 	else:
-		fail("Subject is still valid")
+		fail("Subject should not be valid")
