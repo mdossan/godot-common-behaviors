@@ -1,7 +1,10 @@
 extends MdsTestScene
 
 func test():
+	var subject = %Subject
 	%MdsDespawnAfterTimerBehavior.despawn()
 	await %MdsDespawnAfterTimerBehavior.despawned
 	await %MdsDespawnAfterTimerBehavior.tree_exited
-	assert_eq(get_child_count(), 0, "Child scene should be removed")
+	await wait_physics_frame() # Queue free occurs after the physics frame
+	assert_eq(get_child_count(), 0, "Subject node should be removed")
+	assert_is_valid(!is_instance_valid(subject), "Subject node should not be a valid instance")
