@@ -3,7 +3,5 @@ extends MdsTestScene
 func test():
 	%MdsDespawnAfterTimerBehavior.despawn()
 	await %MdsDespawnAfterTimerBehavior.despawned
-	if is_instance_valid(%Subject):
-		succeed("Subject has been removed")
-	else:
-		fail("Subject should not be valid")
+	await %MdsDespawnAfterTimerBehavior.tree_exited
+	assert_eq(get_child_count(), 0, "Child scene should be removed")
