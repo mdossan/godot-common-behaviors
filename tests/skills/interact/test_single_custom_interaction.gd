@@ -3,4 +3,4 @@ extends MdsTestScene
 func test():
 	await input_press("interact")
 	await %MdsInteractionCustom.interacting
-	succeed("Interaction was recorded")
+	assert_is_valid(true, "Interaction was recorded")
