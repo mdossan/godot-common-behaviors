@@ -7,12 +7,12 @@
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_6nk7g"]
+[sub_resource type="Sky" id="Sky_swr3s"]
 sky_material = SubResource("ProceduralSkyMaterial_uxjr7")
 
 [sub_resource type="Environment" id="Environment_f88py"]
 background_mode = 2
-sky = SubResource("Sky_6nk7g")
+sky = SubResource("Sky_swr3s")
 tonemap_mode = 2
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cv4ro"]
