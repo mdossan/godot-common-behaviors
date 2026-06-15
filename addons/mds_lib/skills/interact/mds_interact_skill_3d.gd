@@ -1,5 +1,9 @@
 class_name MdsInteractSkill3D extends Area3D
 
+static var META_KEY: String = "mds_interact_skill_3d"
+
+signal interacted(interact_target: MdsInteractTarget3D)
+
 @export var parent: Node3D
 @export var shape: Shape3D = preload("res://addons/mds_lib/skills/interact/mds_interact_skill_3d_default_shape.tres")
 @export var interact_action: String = "interact"
@@ -7,6 +11,7 @@ class_name MdsInteractSkill3D extends Area3D
 func _ready():
 	if shape != null:
 		%InteractionShape.shape = shape
+	parent.set_meta(META_KEY, self)
 
 var should_interact: bool = false
 func _input(event: InputEvent) -> void:
@@ -23,3 +28,4 @@ func _physics_process(delta: float) -> void:
 		for interact_target in get_overlapping_areas():
 			if interact_target is MdsInteractTarget3D:
 				interact_target.interact(parent)
+				interacted.emit(interact_target)
