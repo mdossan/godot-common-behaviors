@@ -1,6 +1,8 @@
 @tool
 class_name MdsStaminaBehavior extends Node
 
+static var META: String = "mds_stamina_behavior"
+
 #region Exported Vars
 @export var parent: Node:
 	set(new_value):
@@ -26,7 +28,7 @@ func _ready() -> void:
 		return
 	
 	stamina_quantity = stamina_max_quantity
-	parent.set_meta("mds_stamina_logic", self)
+	parent.set_meta(META, self)
 #endregion
 
 #region Business Logic
