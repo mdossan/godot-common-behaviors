@@ -16,6 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Library - Common Behaviors"
 config/tags=PackedStringArray("library")
+run/main_scene="uid://00tnqbifdawx"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://cuqtsup3i0fm5"
 
