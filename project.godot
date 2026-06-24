@@ -34,7 +34,8 @@ folder_colors={
 "res://addons/mds_lib/item/": "purple",
 "res://addons/mds_lib/skills/": "orange",
 "res://old_tests/behaviors/": "green",
-"res://old_tests/skills/": "orange"
+"res://old_tests/skills/": "orange",
+"res://tests/skills/": "orange"
 }
 
 [input]
