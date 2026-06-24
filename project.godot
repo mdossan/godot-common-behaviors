@@ -20,10 +20,6 @@ run/main_scene="uid://00tnqbifdawx"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://cuqtsup3i0fm5"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/gut/plugin.cfg")
-
 [file_customization]
 
 folder_colors={
@@ -33,8 +29,7 @@ folder_colors={
 "res://addons/mds_lib/interaction/": "yellow",
 "res://addons/mds_lib/item/": "purple",
 "res://addons/mds_lib/skills/": "orange",
-"res://old_tests/behaviors/": "green",
-"res://old_tests/skills/": "orange",
+"res://tests/behaviors/": "green",
 "res://tests/skills/": "orange"
 }
 
