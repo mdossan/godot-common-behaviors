@@ -19,5 +19,8 @@ func _input(event: InputEvent) -> void:
 		current_rot.y = clamp(current_rot.y - event.relative.y, -90, 35)
 
 func _process(delta: float) -> void:
+	if get_multiplayer_authority() != multiplayer.get_unique_id():
+		return
+	
 	node_vertical.rotation.x = deg_to_rad(current_rot.y)
 	node_horizontal.rotation.y = deg_to_rad(current_rot.x)
