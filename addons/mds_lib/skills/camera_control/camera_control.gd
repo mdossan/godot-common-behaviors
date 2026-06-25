@@ -1,7 +1,6 @@
 class_name MdsCameraControl
 extends Node3D
 
-@export var free_mode: bool = true
 @export var node_vertical: Node3D
 @export var node_horizontal: Node3D
 @export var disabled: bool = false
